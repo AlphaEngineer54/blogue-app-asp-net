@@ -1,0 +1,36 @@
+﻿@model PostDTO
+
+@{
+    IList<Blogue> userBlogues = ViewBag.Blogue ?? new List<Blogue>();
+}
+<head>
+    <link rel="stylesheet" href="~/css/create-post.css" />
+    <link rel="stylesheet" href="~/css/profile.css" />
+</head>
+<body>
+    <partial name="_UserViewPartial" model="ViewBag.UserId" />
+
+    <div class="create-post-form">
+        <h1>Modifier le post #@Model.Id</h1>
+        <form asp-action="Edit" asp-controller="Post" method="post">
+            <input asp-for="Title" type="text" placeholder="Titre" />
+            <span class="text-danger" asp-validation-for="Title"></span>
+            <textarea asp-for="Content" placeholder="Saisir votre texte..."></textarea>
+            <span class="text-danger" asp-validation-for="Content"></span>
+            <select asp-for="BlogueId">
+                <option value="" selected disabled>Choisissez une blogue...</option>
+                @foreach (var blogue in userBlogues)
+                {
+                    <option value="@blogue.BlogueId">@blogue.Title</option>
+                }
+            </select>
+            <span class="text-danger" asp-validation-for="BlogueId"></span>
+            <button type="submit">Enregistrer</button>
+        </form>
+
+        @if (TempData["UpdatePostMessage"] != null)
+        {
+            <p class="text-success">@TempData["UpdatePostMessage"]</p>
+        }
+    </div>
+</body>

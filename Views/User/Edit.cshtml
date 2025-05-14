@@ -1,0 +1,27 @@
+﻿@model MemberSignInDTO
+
+
+<head>
+    <link rel="stylesheet" href="~/css/profile.css"/>
+    <link rel="stylesheet" href="~/css/edit-profile.css"/>
+</head>
+
+<partial name="_UserViewPartial" model="Model.MemberId"/>
+<div class="Edit-Container">
+    <h1>Modifier vos informations de compte</h1>
+    <div class="edit-account-form">
+        <form asp-action="Edit" asp-controller="User">
+            <input asp-for="UserName" type="text" placeholder="Nom d'utilisateur">
+            <span asp-validation-for="UserName" class="text-danger"></span>
+            <input asp-for="Email" type="email" placeholder="Email">
+            <span asp-validation-for="Email" class="text-danger"></span>
+            <input asp-for="Password" type="password" placeholder="Mot de passe">
+            <span asp-validation-for="Password" class="text-danger"></span>
+            <button type="submit">Enregistrer</button>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </form>
+    </div>
+    <form asp-action="Delete" asp-controller="User" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ?');">
+        <button type="submit" class="btn btn-danger">Supprimer le compte</button>
+    </form>
+</div>

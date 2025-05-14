@@ -1,0 +1,37 @@
+﻿
+
+@{
+    var blogues = (ViewBag.Blogues == null) ? null : ViewBag.Blogues;
+}
+
+<link rel="stylesheet" href="~/css/blogue-list.css">
+
+<div class="container">
+    <partial name="_MainMenu" />
+    <partial name="_NavMenuOption" />
+    <!-- Contenu principal -->
+    <div class="main-content">
+        <section class="post-list">
+            @if (blogues != null)
+            {
+                <h1>@ViewBag.NumbersOfBlog résultats</h1>
+                foreach(var blogue in blogues)
+                {
+                    <div class="Blogues-List">
+                        <a asp-action="Details" asp-controller="Blogue" asp-route-id="@blogue.BlogueId" class="Blogue-Title">@blogue.Title</a>
+                        <p class="Blogue-Description">@blogue.Description</p>
+                        <p class="Blogue-Categorie">Catégorie : <strong>@blogue.Categorie</strong></p>
+                        <p class="Blogue-Date">Date de création : @blogue.CreationDate.ToString("dd MMM yyyy")</p>
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="blogue-not-found-error">@ViewBag.Message</p>
+            }
+        </section>
+    </div>
+
+    <script src="~/js/profil-menu-script.js"></script>
+    <script src="~/js/dark-mode-script.js"></script>
+</div>

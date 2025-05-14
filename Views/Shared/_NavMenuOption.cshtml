@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "RedSocial - Accueil";
+    IList<string> categories = new List<string>()
+    {
+       "Gaming",
+       "Informatique",
+       "Mathématiques",
+       "Science",
+       "Politique",
+       "Philosophie"
+    };
+}
+
+<link rel="stylesheet" href="~/css/home.css">
+<!-- Contenu principal -->
+    <!-- Navigation latérale gauche -->
+    <aside class="side-nav">
+        <div class="home">
+            <img src="~/img/home.png" class="home-image" />
+            <a class="accueil-link" asp-action="Blogue" asp-controller="Home">Accueil</a>
+        </div>
+        <hr />
+        <ul>
+            @foreach (var categorie in categories)
+            {
+                <li><a asp-action="Categorie" asp-controller="Blogue" asp-route-categorie="@categorie">@categorie</a></li>
+            }
+        </ul>
+        <hr />
+
+        <!-- Bouton Contact en bas avec icône -->
+        <div class="contact">
+            <img class="contact-image" src="~/img/contact.png" alt="Contact Icon">
+            <a href="/Home/Contact">Contactez-nous</a>
+        </div>
+    </aside>

@@ -1,0 +1,13 @@
+﻿@model CommentDTO
+
+
+<div class="create-comment-form">
+    <h3>Publier un commentaire</h3>
+    <form asp-action="Create" asp-controller="Comment">
+        <input asp-for="PostId" type="hidden"/>
+        <input asp-for="MemberId" type="hidden"/>
+        <textarea asp-for="Content" placeholder="Saisir votre commentaire"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+        <button type="submit">Publier</button>
+    </form>
+</div>

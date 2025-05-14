@@ -1,0 +1,15 @@
+﻿@model Comment
+
+
+<div class="comment">
+    <div class="comment-header">
+        <div class="user-comment-avatar">@Model.Member?.UserName.Substring(0, 1)</div>
+        <div class="comment-info">
+            <span class="username">@Model.Member?.UserName</span>
+            <span class="post-date">@Model.PublishingDate.ToShortDateString()</span>
+        </div>
+    </div>
+    <div class="comment-content">
+        <p>@Model.Content</p>
+    </div>
+</div>

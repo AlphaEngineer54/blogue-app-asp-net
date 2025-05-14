@@ -1,0 +1,25 @@
+﻿@model Member
+
+<head>
+    <link rel="stylesheet" href="~/css/profile.css" />
+</head>
+
+<partial name="_UserViewPartial" model="Model.MemberId" />
+
+
+<div class="MyProfile">
+
+    <div class="global-user-info">
+        <h1>Bonjour, @Model.UserName</h1>
+        <h3>Informations sur votre compte:</h3>
+        <p>Email : <strong>@Model.Email</strong></p>
+        <p>Date de création du compte : <strong>@Model.CreationDate.ToString("dd MMM yyyy")</strong></p>
+    </div>
+
+    <hr/>
+    <div class="profil-stats">
+        <h3>Statistique de compte:</h3>
+        <p>Nombre de blogues publiés : <strong>@Model.Blogues.Count</strong></p>
+        <p>Nombre de posts publiés: <strong>@Model.Posts.Count</strong></p>
+    </div>
+</div>

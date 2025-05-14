@@ -1,0 +1,43 @@
+﻿@model BlogueDTO
+
+@{
+    var categories = new List<string>()
+    {
+       "Gaming",
+       "Informatique",
+       "Mathématiques",
+       "Science",
+       "Politique",
+       "Philosophie"
+    };
+}
+<head>
+    <link rel="stylesheet" href="~/css/create.css"/>
+    <link rel="stylesheet" href="~/css/profile.css"/>
+</head>
+<body>
+    <partial name="_UserViewPartial" model="ViewBag.UserId"/>
+    <div class="create-blogue-form">
+        <h1>Créer un blogue</h1>
+        <form asp-action="Create" asp-controller="Blogue">
+            <input asp-for="Title" type="text" placeholder="Titre"/>
+            <span class="text-danger" asp-validation-for="Title"></span>
+            <textarea asp-for="Description" placeholder="Description"></textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
+            <select asp-for="Categorie">
+                <option value="" selected disabled>Choisissez une catégorie...</option>
+                @foreach(var categorie in categories)
+                {
+                    <option>@categorie</option>
+                }
+            </select>
+            <span class="text-danger" asp-validation-for="Categorie"></span>
+            <button type="submit">Créer</button>
+        </form>
+
+        @if(TempData["MessageSuccess"] != null)
+        {
+            <p class="text-success">@TempData["MessageSuccess"]</p>
+        }
+    </div>
+</body>

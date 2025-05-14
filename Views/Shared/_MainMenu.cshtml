@@ -1,0 +1,44 @@
+﻿@inject IHttpContextAccessor context;
+
+@{
+   
+     var user = ViewBag.LoggedUser;
+    
+}
+
+
+<head>
+    <link rel="stylesheet" href="~/css/home.css?v=1.1">
+</head>
+ <!-- Barre de navigation supérieure -->
+<nav class="top-nav">
+    <div class="logo">
+        <h1>RedSocial</h1>
+    </div>
+
+    <!-- Barre de recherche avec icône et switch -->
+    <div class="search-bar">
+        <img src="/img/search-icon.jpeg" alt="Recherche" class="search-icon">
+        <form asp-action="Search", asp-controller="Post" method="get">
+            <input name="query" type="text" onsubmit="this.form.submit()" placeholder="Rechercher">
+        </form>
+    </div>
+
+    @* Dark Mode
+    <div class="dark-mode-switch">
+    <label class="switch">
+    <input type="checkbox" id="darkModeToggle">
+    <span class="slider"></span>
+    </label>
+    </div>
+    *@
+  
+    <!-- Profil utilisateur -->
+    <div class="user-profile" id="profileButton">
+        @user.UserName.Substring(0, 1)
+        <div class="profile-menu" id="profileMenu">
+            <a asp-action="MyProfile" asp-controller="User">Mon Profil</a>
+            <a asp-action="Logout" asp-controller="Authentification" asp-route-id="@ViewBag.LoggedUser.MemberId">Déconnexion</a>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,54 @@
+﻿@model int
+@{
+    var menu = new List<string>()
+    {
+       "Ajouter un blogue",
+       "Ajouter un post",
+       "Voir vos blogues",
+       "Voir tous vos posts",
+       "Mon profil",
+       "Modifier le compte",
+       "Retourner à l'application",
+       "Se déconnecter"
+    };
+}
+
+<div class="user-option">
+    <ul>
+    @foreach (var option in menu)
+    {
+        <li>
+            <a href="@GetUrlForOption(option)" class="option">@option</a>
+        </li>
+    }
+    </ul>
+</div>
+
+
+
+@functions {
+    public string GetUrlForOption(string option)
+    {
+        switch (option)
+        {
+            case "Ajouter un blogue":
+                return "/Blogue/Create";
+            case "Modifier le compte":
+                return $"/User/Edit";
+            case "Voir vos blogues":
+                return "/Blogue/MyBlogues";
+            case "Voir tous vos posts":
+                return $"/Post/MyPosts";
+            case "Ajouter un post":
+                return "/Post/CreatePost";
+            case "Retourner à l'application":
+                return "/Home/Blogue";
+            case "Mon profil":
+                return "/User/MyProfile";
+            case "Se déconnecter":
+                return $"/Authentification/Logout/{Model}";
+            default:
+                return "#";
+        }
+    }
+}

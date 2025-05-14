@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Post>
+@{
+    ViewData["Title"] = "RedSocial - Accueil";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/home.css">
+</head>
+
+<div class="container">
+    <partial name="_MainMenu"/>
+    <partial name="_NavMenuOption"/>
+
+    <!-- Contenu principal -->
+    <div class="main-content">
+        <!-- Liste des posts populaires -->
+        <section class="post-list">
+            @if (Model != null && Model.Any())
+            {
+                <partial name="_BloguePartial" model="Model" />
+            }
+            else
+            {
+                <p class="post-not-found-home">@ViewBag.Message</p>
+            }
+        </section>
+    </div>
+
+    <script src="~/js/profil-menu-script.js"></script>
+    <!-- <script src="~/js/dark-mode-script.js"></script> -->
+</div>

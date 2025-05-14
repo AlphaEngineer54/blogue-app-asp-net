@@ -1,0 +1,90 @@
+﻿@model Post
+@inject IHttpContextAccessor context;
+
+@{
+    var postOwner = Model.Member;
+    var loggedUser = ViewBag.LoggedUser; 
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details</title>
+    <link rel="stylesheet" href="~/css/home.css?v=1.1">
+</head>
+
+@if(Model != null)
+{
+
+    <div class="post-item">
+        <div class="post-header">
+            <div class="user-avatar">@postOwner?.UserName.Substring(0, 1)</div>
+            <div class="post-info">
+                <span class="username">@postOwner?.UserName</span>
+                <span class="post-date">@Model.PublishingDate.ToShortDateString()</span>
+            </div>
+        </div>
+
+        <h2><a asp-action="Details" asp-controller="Post" asp-route-id="@Model.PostId">@Model.Title</a></h2>
+        <p>@Model.Content</p>
+
+        <div class="post-reactions">
+            <div class="reaction-forms">
+                <!-- Formulaire pour le bouton Like -->
+                <form asp-action="AddLike" asp-controller="Votes" asp-route-postId="@Model.PostId" asp-route-memberId="@loggedUser?.MemberId">
+                    <button type="submit" class="reaction-button">
+                        <img src="~/img/like.png" alt="Like" /> <span>@Model.PostLikes.Count</span>
+                    </button>
+                </form>
+
+                <!-- Formulaire pour le bouton Dislike -->
+                <form asp-action="AddDislike" asp-controller="Votes" asp-route-postId="@Model.PostId" asp-route-memberId="@loggedUser?.MemberId">
+                    <button type="submit" class="reaction-button">
+                        <img src="~/img/dislike.png" alt="Dislike" /> <span>@Model.PostDislikes.Count</span>
+                    </button>
+                </form>
+
+                <!-- Formulaire pour les commentaires -->
+                <form  asp-action="Details" asp-controller="Post" asp-route-id="@Model.PostId">
+                    <button type="submit" class="reaction-button">
+                        <img src="~/img/comment.png" alt="Comment" /> <span>@Model.Comments.Count</span>
+                    </button>
+                </form>
+
+             
+                <button onclick="getLink('@Model.PostUrl')" type="submit" class="reaction-button">
+                        <img src="~/img/share.png" alt="Share" />
+                </button>
+               
+            </div>
+        </div>
+
+    </div>
+  
+    <!-- Script AJAX pour éviter le rechargement de la page à chaque requête POST de l'utilisateur -->
+    <script>
+        $(document).ready(function () {
+            // Like button AJAX
+            $(".reaction-button").on("click", function (event) {
+                event.preventDefault();
+                let url = $(this).attr("formaction");
+                $.post(url, function (response) {
+                    location.reload();  // recharge la page pour mettre à jour le compteur
+                });
+            });
+        });
+    </script>
+    <script>
+        function getLink(url) {
+            navigator.clipboard.writeText(url).then(function () {
+                alert("URL du post copié dans le presse-papier!");
+            }).catch(function (err) {
+                alert("Échec de la copie: " + err);
+            });
+        }
+    </script>
+}
+else
+{
+    <h1>@ViewBag.Error</h1>
+}

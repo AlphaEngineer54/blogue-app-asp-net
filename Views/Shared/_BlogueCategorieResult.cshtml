@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Post>
+
+<link rel="stylesheet" href="~/css/post-categorie.css"/>
+
+<div class="container">
+    <partial name="_NavMenuOption" />
+    <section class="post-list-categorie">
+        @if(Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+
+                <h2><a asp-action="Details" asp-controller="Post" asp-route-id="@item.PostId">@item.Title</a></h2>
+                <p>@(item.Content.Length > 200 ? item.Content.Substring(0, 200) + "..." : item.Content)</p>
+            }
+        }
+        else
+        {
+            <h3 class="error-message">Aucun post trouvé pour la catégorie sélectionnée</h3>
+        }
+    </section>
+</div>

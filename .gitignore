@@ -1,6 +1,55 @@
-﻿namespace Projet_RedSocial_app
-{
-    public class _
-    {
-    }
-}
+﻿# Fichiers générés par Visual Studio
+.vs/
+*.user
+*.suo
+*.vcxproj.user
+
+# Dossiers de build
+[Bb]in/
+[Oo]bj/
+
+# Fichiers de configuration
+appsettings*.json
+*.config
+*.settings
+
+# Fichiers de package NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# Fichiers de publication
+*.publishsettings
+*.pubxml
+*.pubxml.user
+
+# Fichiers de test
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Fichiers générés par les outils
+_ReSharper*/
+*.resharper
+*.DotSettings.user
+.idea/
+*.sln.docstates
+
+# Fichiers de logs et temporaires
+*.log
+*.tmp
+*.temp
+*.tlog
+*.lastbuildstate
+
+# Fichiers de déploiement
+*.deploy.cmd
+*.deploy-readme.txt
+
+# Fichiers spécifiques à ASP.NET
+wwwroot/
+node_modules/
+dist/

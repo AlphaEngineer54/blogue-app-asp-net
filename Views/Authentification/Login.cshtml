@@ -1,0 +1,36 @@
+﻿@model MemberLoginDTO
+@{
+    ViewData["Title"] = "RedSocial - Se Connecter";
+    ViewData["AppName"] = "RedSocial";
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/authentification.css">
+</head>
+<body>
+    <h1 class="app-name">@ViewData["AppName"]</h1>
+    <div class="container">
+        <h1>Se connecter</h1>
+        <form asp-controller="Authentification" asp-action="Login" method="post">
+            <input asp-for="Email" type="email" placeholder="Email">
+            <span asp-validation-for="Email" class="text-danger"></span>
+            <input asp-for="Password" type="password" placeholder="Mot de passe">
+            <span asp-validation-for="Password" class="text-danger"></span>
+            <button type="submit">Se connecter</button>
+        </form>
+        <p>Aucun compte ? <a asp-controller="Authentification" asp-action="SignIn">S’inscrire</a></p>
+    </div>
+
+    @if (!string.IsNullOrEmpty(ViewBag.Error))
+    {
+        string error = ViewBag.Error;
+        <p class="error">@error</p>
+    }
+
+</body>
+</html>

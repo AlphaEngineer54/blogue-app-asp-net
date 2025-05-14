@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Blogue>
+@inject IHttpContextAccessor context;
+
+@{
+    var user = ViewBag.LoggedUser;
+}
+<head>
+    <link rel="stylesheet" href="~/css/profile.css"/>
+    <link rel="stylesheet" href="~/css/my-blogues.css"/>
+</head>
+
+<partial name="_UserViewPartial" model="@user"/>
+@if(Model != null && Model.Any())
+{
+    <ul class="Blogues-List">
+        @foreach(var blogue in Model)
+        {
+            <li>
+                <div class="Blogue">
+                    <h1 class="Blogue-Title">
+                        <a asp-action="Edit"
+                           asp-controller="Blogue"
+                           asp-route-id="@blogue.BlogueId"
+                           aria-label="Modifier ce blogue">
+                           @blogue.Title
+                        </a>
+                    </h1>
+                    <p class="Blogue-Description">@blogue.Description</p>
+                    <p class="Blogue-Categorie">Catégorie : <strong>@blogue.Categorie</strong></p>
+                    <p class="Blogue-Date">Date de création : @blogue.CreationDate.ToString("dd MMM yyyy")</p>
+                    <div class="blogue-action">
+                      
+                        <form 
+                            asp-action="Delete" 
+                            asp-controller="Blogue" 
+                            asp-route-id="@blogue.BlogueId" 
+                            method="post">
+                            <button class="text-danger" type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce blogue ?');" aria-label="Supprimer le blogue">
+                                Supprimer</button>
+                        </form>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p class="user-blogue-not-found">Aucun blogue trouvé</p>
+}

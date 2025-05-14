@@ -1,0 +1,16 @@
+﻿@model CommentDTO
+
+<div class="update-comment-form">
+    <form asp-action="Update" asp-controller="Comment">
+        <input asp-for="Id" value="@Model.Id" type="hidden"/>
+        <input asp-for="PostId" value="@Model.PostId" type="hidden" />
+        <input asp-for="MemberId" value="@Model.MemberId" type="hidden" />
+        <textarea asp-for="Content" placeholder="Saisir votre commentaire"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+        <button type="submit">Enregistrer</button>
+    </form>
+
+    <form asp-action="Delete" asp-controller="Comment" asp-route-id="@Model.Id">
+        <button type="submit">Supprimer</button>
+    </form>
+</div>
