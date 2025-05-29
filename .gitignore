@@ -9,7 +9,6 @@
 [Oo]bj/
 
 # Fichiers de configuration
-appsettings*.json
 *.config
 *.settings
 
