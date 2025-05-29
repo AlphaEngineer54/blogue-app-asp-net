@@ -45,6 +45,10 @@ _ReSharper*/
 *.tlog
 *.lastbuildstate
 
+# Fichiers d'environnement
+.env
+*.env
+ 
 # Fichiers de déploiement
 *.deploy.cmd
 *.deploy-readme.txt
