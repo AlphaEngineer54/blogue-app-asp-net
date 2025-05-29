@@ -1,0 +1,148 @@
+﻿/* profile.css */
+
+/* Conteneur principal pour le profil avec flexbox */
+.profile-container {
+    display: flex;
+    flex-wrap: wrap; /* Permet de passer à une disposition en ligne sur les petits écrans */
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    justify-content: center; /* Centrer le contenu horizontalement */
+}
+
+/* user-option (menu de navigation à gauche) */
+.user-option {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px; /* Largeur du menu */
+    height: 100vh; /* Occupe toute la hauteur de l'écran */
+    background-color: #2c3e50; /* Couleur sombre pour le fond */
+    color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Ombre légère pour le menu */
+    padding-top: 30px; /* Espacement en haut */
+    z-index: 100; /* S'assurer que le menu soit au-dessus des autres éléments */
+    overflow-y: auto; /* Permet de faire défiler si nécessaire */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacement entre les éléments du menu */
+}
+
+    /* Liste des options */
+    .user-option ul {
+        list-style-type: none; /* Supprime les puces */
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Style des éléments de liste */
+    .user-option li {
+        margin-bottom: 10px; /* Espacement entre les éléments du menu */
+    }
+
+    /* Style des liens */
+    .user-option .option {
+        display: block;
+        padding: 15px;
+        color: #ecf0f1; /* Couleur claire pour le texte */
+        text-decoration: none; /* Supprimer le soulignement */
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 4px; /* Coins arrondis */
+        transition: background-color 0.3s ease; /* Transition douce pour le survol */
+        background-color: transparent; /* Transparence initiale */
+    }
+
+        /* Hover effect pour les liens */
+        .user-option .option:hover {
+            background-color: #34495e; /* Couleur plus foncée sur survol */
+        }
+
+        /* Active link state (lien sélectionné) */
+        .user-option .option:active {
+            background-color: #1abc9c; /* Couleur verte quand activé */
+        }
+
+/* Contenu principal du profil */
+.MyProfile {
+    margin-left: 260px; /* Décalage pour laisser de l'espace au menu */
+    margin-top: 60px; /* Ajusté pour aligner correctement */
+    padding: 30px;
+    width: calc(100% - 260px); /* Déduire la largeur du menu */
+    max-width: 900px; /* Largeur maximale */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alignement sur la gauche pour une présentation plus fluide */
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    gap: 20px; /* Espacement entre les sections */
+}
+
+    /* Titres */
+    .MyProfile h1 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 15px;
+        font-family: 'Arial', sans-serif;
+    }
+
+/* Sections d'informations */
+.global-user-info, .profil-stats {
+    width: 100%;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+    .global-user-info h3, .profil-stats h3 {
+        color: #555;
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+
+    .global-user-info p, .profil-stats p {
+        font-size: 16px;
+        color: #777;
+    }
+
+strong {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Mise en page des statistiques */
+.profil-stats {
+    margin-top: 15px;
+}
+
+/* Ligne de séparation */
+hr {
+    border: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+/* Réduire l'ombre et les espacements pour les petits écrans */
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column; /* Passer en colonne sur mobile */
+    }
+
+    .MyProfile {
+        margin-left: 0; /* Enlever le décalage pour les petits écrans */
+        padding: 15px;
+        width: 100%;
+    }
+
+    .user-option {
+        width: 200px; /* Réduire la largeur du menu */
+    }
+}
+
+/* Réduction de l'ombre pour un effet plus léger */
+@media (max-width: 480px) {
+    .user-option {
+        box-shadow: 1px 0 3px rgba(0, 0, 0, 0.2);
+    }
+}

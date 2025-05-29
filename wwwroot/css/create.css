@@ -1,0 +1,113 @@
+﻿/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Style de la page globale */
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f5f7;
+}
+
+/* Conteneur principal */
+.create-blogue-form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+    /* Titre du formulaire */
+    .create-blogue-form h1 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    /* Style des champs de saisie */
+    .create-blogue-form input[type="text"],
+    .create-blogue-form textarea,
+    .create-blogue-form select {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        font-size: 16px;
+        color: #333;
+        transition: border-color 0.3s;
+    }
+
+        .create-blogue-form input[type="text"]:focus,
+        .create-blogue-form textarea:focus,
+        .create-blogue-form select:focus {
+            border-color: #b22222; /* Couleur rouge foncé */
+            outline: none;
+        }
+
+        /* Placeholder styling */
+        .create-blogue-form input::placeholder,
+        .create-blogue-form textarea::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+
+    /* Zone de texte (textarea) */
+    .create-blogue-form textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+/* Message de validation d'erreur */
+.text-danger {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Bouton de soumission rouge foncé */
+.create-blogue-form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #b22222; /* Rouge foncé */
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .create-blogue-form button[type="submit"]:hover {
+        background-color: #8b0000; /* Rouge encore plus foncé pour effet de survol */
+    }
+
+/* Style de la liste déroulante (select) */
+.create-blogue-form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23999' d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+/* Ajustement pour les écrans plus petits */
+@media (max-width: 600px) {
+    .create-blogue-form {
+        padding: 20px;
+        width: 90%;
+    }
+}

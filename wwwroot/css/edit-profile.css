@@ -1,0 +1,115 @@
+﻿/* Importation de la police pour un style moderne */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Assure que le contenu est au centre verticalement */
+}
+
+/* Centrer le conteneur de l'édition au centre de l'écran */
+.Edit-Container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    margin: auto; /* Centrer horizontalement */
+}
+
+    .Edit-Container h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #333333;
+        margin-bottom: 20px;
+        text-align: center;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 15px;
+    }
+
+/* Disposition verticale des éléments de formulaire */
+.edit-account-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espace entre chaque champ */
+}
+
+    .edit-account-form input[type="text"],
+    .edit-account-form input[type="email"],
+    .edit-account-form input[type="password"] {
+        padding: 12px;
+        font-size: 1rem;
+        border-radius: 6px;
+        border: 1px solid #cbd5e0;
+        width: 100%;
+        transition: border-color 0.3s;
+    }
+
+        .edit-account-form input[type="text"]:focus,
+        .edit-account-form input[type="email"]:focus,
+        .edit-account-form input[type="password"]:focus {
+            border-color: #3182ce;
+            outline: none;
+        }
+
+    /* Bouton Enregistrer en vert */
+    .edit-account-form button[type="submit"] {
+        padding: 12px;
+        font-size: 1rem;
+        background-color: #38a169; /* Vert */
+        color: #ffffff;
+        border: none;
+        border-radius: 6px;
+        width: 100%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .edit-account-form button[type="submit"]:hover {
+            background-color: #2f855a;
+        }
+
+/* Bouton de suppression de compte en rouge */
+.btn-danger {
+    padding: 12px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #e53e3e;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+    .btn-danger:hover {
+        background-color: #c53030;
+    }
+
+/* Messages d'erreur */
+.text-danger {
+    color: #e53e3e;
+    font-size: 0.875rem;
+    text-align: left;
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    .Edit-Container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+        .Edit-Container h1 {
+            font-size: 1.5rem;
+        }
+}

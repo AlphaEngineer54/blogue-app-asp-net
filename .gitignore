@@ -53,6 +53,4 @@ _ReSharper*/
 *.deploy-readme.txt
 
 # Fichiers spécifiques à ASP.NET
-wwwroot/
-node_modules/
 dist/

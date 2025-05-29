@@ -1,0 +1,141 @@
+﻿/* Style global */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9fb;
+}
+
+/* Liste des blogues */
+.Blogues-List {
+    list-style-type: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+    .Blogues-List li {
+        margin-bottom: 20px;
+    }
+
+.Blogue {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .Blogue:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+.Blogue-Title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0 0 10px;
+}
+
+    .Blogue-Title a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+    }
+
+        .Blogue-Title a:hover {
+            color: #4a90e2; /* Couleur au survol */
+        }
+
+.Blogue-Description {
+    font-size: 1rem;
+    color: #4a5568;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.Blogue-Categorie, .Blogue-Date {
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+    .Blogue-Categorie strong {
+        color: #2d3748;
+    }
+
+/* Action du blogue */
+.blogue-action {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+    .blogue-action button {
+        background-color: transparent;
+        border: none;
+        font-size: 0.9rem;
+        color: #e53e3e; /* Rouge pour l'alerte */
+        cursor: pointer;
+        padding: 8px 12px;
+        transition: color 0.3s ease;
+    }
+
+        .blogue-action button:hover {
+            color: #c53030;
+        }
+
+.text-danger {
+    color: #e53e3e;
+}
+
+/* Styles pour centrer et styliser le message d'erreur, mais avec un box plus petit */
+.user-blogue-not-found {
+    display: flex; /* Utilisation de flexbox pour centrer le contenu */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    position: absolute; /* Utilisation de position absolue pour centrer sur l'écran */
+    top: 50%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translate(-50%, -50%); /* Centrer parfaitement par rapport à son propre centre */
+    font-size: 1.1rem; /* Taille de texte plus petite mais lisible */
+    color: #d9534f; /* Couleur rouge pour l'erreur */
+    background-color: rgba(217, 83, 79, 0.1); /* Fond léger rouge */
+    padding: 10px 20px; /* Espacement interne pour un box plus petit */
+    border-radius: 8px; /* Coins arrondis pour un effet moderne */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour effet de profondeur */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Police moderne */
+    max-width: 300px; /* Largeur maximale pour éviter un box trop large */
+    width: 100%; /* Le box prend toute la largeur disponible jusqu'à la largeur maximale */
+    text-align: center; /* Centrer le texte */
+    word-wrap: break-word; /* Gérer les longs mots */
+}
+
+    .user-blogue-not-found strong {
+        font-weight: bold; /* Mettre le texte important en gras */
+    }
+
+/* Responsivité */
+@media (max-width: 600px) {
+    .Blogues-List {
+        padding: 0 10px;
+    }
+
+    .Blogue {
+        padding: 15px;
+    }
+
+    .Blogue-Title {
+        font-size: 1.3rem;
+    }
+
+    .Blogue-Description {
+        font-size: 0.95rem;
+    }
+
+    .user-blogue-not-found {
+        font-size: 1rem; /* Réduire la taille du texte sur les petits écrans */
+    }
+}
+
+

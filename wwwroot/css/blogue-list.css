@@ -1,0 +1,85 @@
+﻿
+/* Style pour la liste des blogues */
+.Blogues-List {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .Blogues-List:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+/* Titre du blogue (lien) */
+.Blogue-Title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 8px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+    .Blogue-Title:hover {
+        color: #2196F3;
+    }
+
+/* Description du blogue */
+.Blogue-Description {
+    font-size: 1rem;
+    color: #666;
+    margin: 10px 0;
+}
+
+/* Catégorie du blogue */
+.Blogue-Categorie {
+    font-size: 0.9rem;
+    color: #888;
+    font-style: italic;
+}
+
+/* Style pour le message d'erreur "Aucun blogue trouvé" */
+.blogue-not-found-error {
+    background-color: #f8d7da; /* Couleur de fond légère pour attirer l'attention */
+    color: #721c24; /* Texte rouge foncé pour un contraste fort */
+    border-left: 5px solid #f5c6cb; /* Bordure à gauche pour plus de visibilité */
+    padding: 15px; /* Espacement interne */
+    font-size: 16px; /* Taille de police adaptée */
+    font-family: 'Helvetica', sans-serif; /* Police moderne et lisible */
+    border-radius: 5px; /* Coins arrondis pour un aspect plus doux */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre portée */
+    text-align: center; /* Centrer le texte */
+    position: absolute; /* Position absolue pour l'ancrage */
+    top: 50%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translate(-50%, -50%); /* Ajuste pour parfaitement centrer le message */
+    max-width: 80%; /* Limite la largeur pour ne pas trop s'étendre */
+    width: 400px; /* Largeur fixe ou ajustable */
+    z-index: 10; /* Assure que le message est au-dessus des autres éléments */
+}
+
+/* Responsive styling for mobile */
+@media (max-width: 768px) {
+    .Blogues-List {
+        padding: 15px;
+    }
+
+    .Blogue-Title {
+        font-size: 1.3rem;
+    }
+
+    .Blogue-Description,
+    .Blogue-Categorie {
+        font-size: 0.9rem;
+    }
+
+    .blogue-not-found-error {
+        font-size: 14px; /* Réduction de la taille de la police sur petits écrans */
+        padding: 12px; /* Espacement réduit sur petits écrans */
+    }
+}

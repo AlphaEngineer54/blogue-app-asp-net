@@ -1,0 +1,77 @@
+﻿/* Styles généraux */
+.contact-app {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 650px; /* Réduit la largeur pour le rendre un peu plus petit */
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #ffffff; /* Fond blanc pour un effet plus propre et professionnel */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombre subtile mais élégante */
+    position: absolute;
+    top: 45%; /* Ajuste pour le rendre un peu plus haut */
+    left: 50%; /* Centré horizontalement */
+    transform: translate(-50%, -45%); /* Ajuste légèrement vers le haut tout en restant centré */
+    text-align: center;
+    border: 1px solid #e0e0e0; /* Bordure légère pour un effet de séparation propre */
+}
+
+/* Titres */
+h1 {
+    font-size: 2.25rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase; /* Donne un aspect plus moderne avec un texte en majuscules */
+    border-bottom: 2px solid #f1f1f1;
+    padding-bottom: 10px;
+}
+
+/* Séparateurs */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #f1f1f1;
+    margin: 20px 0;
+}
+
+/* Texte descriptif */
+.contact-app p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Informations de contact */
+.contact-info {
+    margin-top: 30px;
+}
+
+    .contact-info p {
+        font-size: 1rem;
+        color: #333;
+        margin: 12px 0;
+        font-weight: 400;
+    }
+
+        .contact-info p strong {
+            font-weight: 600;
+            color: #333;
+        }
+
+/* Responsivité */
+@media screen and (max-width: 768px) {
+    .contact-app {
+        padding: 25px;
+        max-width: 100%; /* Pleine largeur sur mobile */
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .contact-info p {
+        font-size: 0.9rem;
+    }
+}

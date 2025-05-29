@@ -1,0 +1,112 @@
+﻿/* Importer une police moderne */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Style global */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Conteneur principal */
+.create-post-form {
+    max-width: 600px;
+    margin: 50px auto; /* Centrer verticalement et horizontalement */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+    /* Titre principal */
+    .create-post-form h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #222;
+    }
+
+    /* Style des champs d'entrée */
+    .create-post-form input[type="text"],
+    .create-post-form textarea,
+    .create-post-form select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        background-color: #fdfdfd;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: border-color 0.3s ease;
+    }
+
+        .create-post-form input[type="text"]:focus,
+        .create-post-form textarea:focus,
+        .create-post-form select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+/* Texte des erreurs */
+.text-danger {
+    font-size: 0.9rem;
+    color: #e63946;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+}
+
+/* Bouton principal */
+.create-post-form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+    .create-post-form button:hover {
+        background-color: #0056b3;
+    }
+
+/* Message de succès */
+.text-success {
+    color: #28a745;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+/* Style du conteneur TempData */
+.create-post-form .text-success {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Ajouter une transition aux éléments */
+.create-post-form input,
+.create-post-form textarea,
+.create-post-form select,
+.create-post-form button {
+    transition: all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .create-post-form {
+        padding: 15px;
+    }
+
+        .create-post-form h1 {
+            font-size: 1.5rem;
+        }
+}

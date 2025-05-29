@@ -1,0 +1,444 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+/* Style global */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Enlève le soulignement des liens */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+/* Conteneur principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Barre de navigation */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    z-index: 100;
+}
+
+    .top-nav .logo h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        color: black;
+    }
+
+.dark-mode .top-nav .logo h1 {
+    color: white;
+}
+
+/* Style global pour form */
+form {
+    margin: 0; /* Évite tout espacement supplémentaire autour du formulaire */
+    padding: 0; /* Supprime les marges internes */
+    display: flex; /* Aligne les enfants en ligne */
+    align-items: center; /* Centre verticalement les éléments */
+    justify-content: center; /* Centre horizontalement les éléments si nécessaire */
+    width: auto; /* Adapte la largeur à son contenu */
+}
+
+/* Applique des styles explicites à l'input */
+.search-bar input[type="text"] {
+    padding: 10px 40px; /* Plus de padding pour une meilleure lisibilité */
+    border: 1px solid #ccc; /* Limite les conflits potentiels de style */
+    border-radius: 15px;
+    font-size: 1rem;
+    width: 100%; /* S'assure que l'input occupe tout l'espace disponible */
+    max-width: 400px; /* Délimite la largeur pour ne pas trop l'étendre */
+    box-sizing: border-box; /* Inclut les bordures et padding dans la largeur */
+    outline: none; /* Supprime le contour par défaut */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    /* Ajustement sur hover/focus */
+    .search-bar input[type="text"]:focus {
+        border-color: #2196F3;
+        box-shadow: 0 0 5px rgba(33, 150, 243, 0.5); /* Ajout d'un effet visuel élégant */
+    }
+
+/* Styles spécifiques au conteneur form (ou parent) */
+.search-bar {
+    display: flex;
+    align-items: center; /* Aligne verticalement l'input */
+    justify-content: center;
+    position: relative; /* Nécessaire pour positionner l'icône de recherche */
+    gap: 10px; /* Ajoute de l'espace entre les éléments */
+}
+
+    /* Positionnement de l'icône de recherche */
+    .search-bar .search-icon {
+        position: absolute;
+        left: 10px; /* Place l'icône à l'intérieur de l'input */
+        width: 20px;
+        height: 20px;
+        pointer-events: none; /* Évite que l'icône ne bloque les clics sur l'input */
+    }
+
+/* Ajustement pour le mode sombre */
+.dark-mode .search-bar {
+    background-color: #333;
+    box-shadow: none;
+}
+
+    .dark-mode .search-bar input[type="text"] {
+        background-color: #444;
+        color: #f0f0f0;
+        border: 1px solid #555;
+    }
+
+        .dark-mode .search-bar input[type="text"]:focus {
+            border-color: #2196F3;
+            box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+        }
+
+    .dark-mode .search-bar .search-icon {
+        filter: brightness(1.5);
+    }
+
+/* Menu de catégories */
+.side-nav {
+    width: 250px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    color: black;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: calc(100% - 60px);
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-top: 1px solid #ccc;
+    margin-top: 25px;
+}
+
+    .side-nav a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.2rem;
+        display: block;
+        padding: 10px;
+    }
+
+        .side-nav a:hover {
+            background-color: #ccc;
+        }
+
+.dark-mode .side-nav {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+    .dark-mode .side-nav a {
+        color: #f0f0f0;
+    }
+
+        .dark-mode .side-nav a:hover {
+            background-color: #333;
+        }
+
+/* Suppression des points de la liste */
+.side-nav ul {
+    margin-top: 20px;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+/* Profil utilisateur */
+.user-profile {
+    display: flex;
+    align-items: center;
+    background-color: blue;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: relative;
+    margin-left: 20px;
+}
+
+.profile-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    width: 120px;
+}
+
+.user-profile:hover .profile-menu {
+    display: block;
+}
+
+.profile-menu a {
+    display: block;
+    padding: 8px;
+    color: black;
+    text-decoration: none;
+}
+
+    .profile-menu a:hover {
+        background-color: #f0f0f0;
+    }
+
+.dark-mode .profile-menu {
+    background-color: #1e1e1e;
+}
+
+    .dark-mode .profile-menu a {
+        color: #f0f0f0;
+    }
+
+        .dark-mode .profile-menu a:hover {
+            background-color: #333;
+        }
+
+/* Section principale */
+.main-content {
+    display: flex;
+    margin-top: 20px;
+    padding: 0 20px;
+    margin-left: 270px;
+    width: calc(100% - 270px);
+}
+
+.post-list {
+    width: 100%;
+}
+
+.post-item {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+}
+
+    .post-info .username {
+        font-weight: bold;
+    }
+
+    .post-info .post-date {
+        color: #888;
+        font-size: 0.9rem;
+    }
+
+.post-item h2 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+}
+
+.post-item p {
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Styles pour les réactions */
+.post-reactions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Structure les boutons de réaction horizontalement */
+.reaction-forms {
+    display: flex;
+    gap: 15px; /* Espacement horizontal entre les boutons */
+    justify-content: center; /* Centre les éléments horizontalement */
+    align-items: center; /* Centre les éléments verticalement dans le conteneur */
+}
+
+/* Bouton de réaction */
+.reaction-button {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Assure que l'icône et le texte sont bien centrés dans le bouton */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #888;
+    padding: 5px;
+    transition: color 0.3s;
+}
+
+    /* Icône dans le bouton */
+    .reaction-button img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px; /* Espacement entre l'icône et le texte */
+    }
+
+    /* Effet au survol */
+    .reaction-button:hover {
+        color: black;
+    }
+
+.dark-mode .post-item {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+.dark-mode .reaction-button {
+    color: #f0f0f0;
+}
+
+/* Styles pour le switch du mode sombre */
+.dark-mode-switch {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 400px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 26px;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+    input:checked + .slider:before {
+        transform: translateX(24px);
+    }
+
+/* Styles spécifiques pour les icônes contact et home */
+.contact, .home {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contact-image, .home-image {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px; /* Espace entre le texte et l'image */
+}
+
+/* Si vous voulez ajuster la taille de l'image */
+.contact-image {
+    width: 25px;
+    height: 25px;
+}
+
+.home-image {
+    width: 25px;
+    height: 25px;
+}
+
+body.dark-mode p,
+body.dark-mode h1 {
+    color: #f0f0f0;
+}
+
+
+/* Styles pour centrer et styliser le message d'erreur, mais avec un box plus petit */
+.post-not-found-home {
+    display: flex; /* Utilisation de flexbox pour centrer le contenu */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    position: absolute; /* Utilisation de position absolue pour centrer sur l'écran */
+    top: 50%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translate(-50%, -50%); /* Centrer parfaitement par rapport à son propre centre */
+    font-size: 1.1rem; /* Taille de texte plus petite mais lisible */
+    color: #d9534f; /* Couleur rouge pour l'erreur */
+    background-color: rgba(217, 83, 79, 0.1); /* Fond léger rouge */
+    padding: 10px 20px; /* Espacement interne pour un box plus petit */
+    border-radius: 8px; /* Coins arrondis pour un effet moderne */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour effet de profondeur */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Police moderne */
+    max-width: 300px; /* Largeur maximale pour éviter un box trop large */
+    width: 100%; /* Le box prend toute la largeur disponible jusqu'à la largeur maximale */
+    text-align: center; /* Centrer le texte */
+    word-wrap: break-word; /* Gérer les longs mots */
+}
+
+    .post-not-found-home strong {
+        font-weight: bold; /* Mettre le texte important en gras */
+    }

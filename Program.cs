@@ -1,15 +1,17 @@
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Projet_RedSocial_app.FilterActions;
 using Projet_RedSocial_app.Models;
 using Projet_RedSocial_app.Models.DBContext;
 using Projet_RedSocial_app.Services;
-using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Environnemnt variables
+var envConnectionString = Environment.GetEnvironmentVariable("BLOGUE_DB_CONNECTION_STRING");
+builder.Configuration["ConnectionStrings:BlogueDB_Connection"] = envConnectionString;
+
 
 // Add DBContext
 builder.Services.AddDbContext<BloguedbContext>(options =>
@@ -60,7 +62,7 @@ builder.Services.AddRateLimiter(options =>
     });
 });
 
-builder.Services.AddDistributedMemoryCache(); // Nécessaire pour stocker les sessions en mémoire
+builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
     // Configure les options de la session (facultatif)

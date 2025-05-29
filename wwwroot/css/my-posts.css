@@ -1,0 +1,137 @@
+﻿/* Importer une police élégante et moderne */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Style global */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f6fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Conteneur principal pour la liste des posts */
+.Post-List {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f5f6fa;
+}
+
+    /* Liste des posts */
+    .Post-List ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Élément individuel dans la liste */
+    .Post-List li {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+        transition: box-shadow 0.3s ease;
+    }
+
+        .Post-List li:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+/* Conteneur d'un post */
+.Post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Titre du post */
+.Post-Title a {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+}
+
+    .Post-Title a:hover {
+        color: #007bff;
+    }
+
+/* Description du post */
+.Blogue-Description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+/* Catégorie du post */
+.Post-Category {
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+    .Post-Category span {
+        font-weight: 700;
+        color: #007bff;
+    }
+
+/* Date de création */
+.Post-Date {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* Actions associées au post */
+.blogue-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+    /* Bouton de suppression */
+    .blogue-action button {
+        background-color: transparent;
+        color: #dc3545;
+        padding: 5px 10px;
+        border: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+        .blogue-action button:hover {
+            color: #bd2130;
+            text-decoration: underline;
+        }
+
+/* Styles pour centrer et styliser le message d'erreur, mais avec un box plus petit */
+.user-post-not-found {
+    display: flex; /* Utilisation de flexbox pour centrer le contenu */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    position: absolute; /* Utilisation de position absolue pour centrer sur l'écran */
+    top: 50%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translate(-50%, -50%); /* Centrer parfaitement par rapport à son propre centre */
+    font-size: 1.1rem; /* Taille de texte plus petite mais lisible */
+    color: #d9534f; /* Couleur rouge pour l'erreur */
+    background-color: rgba(217, 83, 79, 0.1); /* Fond léger rouge */
+    padding: 10px 20px; /* Espacement interne pour un box plus petit */
+    border-radius: 8px; /* Coins arrondis pour un effet moderne */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour effet de profondeur */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Police moderne */
+    max-width: 300px; /* Largeur maximale pour éviter un box trop large */
+    width: 100%; /* Le box prend toute la largeur disponible jusqu'à la largeur maximale */
+    text-align: center; /* Centrer le texte */
+    word-wrap: break-word; /* Gérer les longs mots */
+}
+
+    .user-post-not-found strong {
+        font-weight: bold; /* Mettre le texte important en gras */
+    }
