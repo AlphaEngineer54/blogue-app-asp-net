@@ -5,7 +5,7 @@ CREATE TABLE Member (
     UserName VARCHAR(100) NOT NULL,
     Email VARCHAR(100) NOT NULL,
     Password VARCHAR(255) NOT NULL,
-	CreationDate Date NOT NULL,
+    CreationDate Date NOT NULL,
     IsOnline BIT DEFAULT 0
 );
 
@@ -15,7 +15,7 @@ CREATE TABLE Blogue (
     Title VARCHAR(200) NOT NULL,
     Description TEXT,
     CreationDate DATE NOT NULL,
-	Categorie VARCHAR(255),
+    Categorie VARCHAR(255),
     Member_ID INT,
     FOREIGN KEY (Member_ID) REFERENCES Member(Member_ID)
 );
@@ -38,7 +38,7 @@ CREATE TABLE Comment (
     Comment_ID INT IDENTITY(1,1) PRIMARY KEY,
     Content TEXT NOT NULL,
     PublishingDate DATE NOT NULL,
-	Comment_URL VARCHAR(150),
+    Comment_URL VARCHAR(150),
     Post_ID INT,
     Member_ID INT,
     FOREIGN KEY (Post_ID) REFERENCES Post(Post_ID),
