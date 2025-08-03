@@ -1,64 +1,83 @@
-# Projet RedSocial App
-
-RedSocial App est une application web développée en **ASP.NET Core**, conçue pour offrir une plateforme sociale avec gestion de blogs, commentaires, votes, et un système robuste d'authentification utilisateur. Le projet s'appuie sur **Entity Framework Core** pour la gestion des données et intègre plusieurs services clés pour assurer la sécurité, la performance et la gestion des sessions.
-
----
-
-## Fonctionnalités principales
-
-- **Authentification sécurisée**  
-  Implémentation via `IPasswordHasher` assurant un hachage robuste des mots de passe.
-
-- **Gestion des contenus**  
-  Services modulaires pour blogs, commentaires et votes.
-
-- **Protection CSRF**  
-  Intégration d’un système Antiforgery configuré.
-
-- **Limitation du débit**  
-  Mise en place d’un système de **Rate Limiting**.
-
-- **Sessions sécurisées**  
-  Gestion des sessions via cookies sécurisés, avec support des environnements Docker.
-
-- **Sérialisation JSON avancée**  
-  Utilisation de `Newtonsoft.Json` pour une meilleure flexibilité des échanges JSON.
+# 📝 RedSocial – Application de blogue sociale  
+![Status](https://img.shields.io/badge/status-Terminé-brightgreen)  
+![Framework](https://img.shields.io/badge/framework-ASP.NET%20Core-blue)  
+![Database](https://img.shields.io/badge/database-SQLServer-purple)  
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 ---
 
-## Prérequis techniques
+## 🚀 À propos du projet
 
-- **.NET 6.0 ou supérieur**
-- **SQL Server**
-- **Visual Studio 2022** ou équivalent
+**RedSocial App** est une application web moderne développée en **ASP.NET Core**, pensée pour offrir une plateforme sociale intuitive et sécurisée. Elle permet aux utilisateurs de publier des blogs, commenter, voter et interagir dans un environnement protégé et performant.
+
+🔧 Le projet repose sur **Entity Framework Core** pour la gestion des données, et intègre plusieurs services clés pour garantir :
+
+- 🔐 Sécurité renforcée  
+- ⚡ Performance optimisée  
+- 🧠 Gestion intelligente des sessions  
+---
+
+## ✨ Fonctionnalités principales
+
+### 🔐 Authentification sécurisée
+- Hachage robuste des mots de passe via `IPasswordHasher`
+
+### 📝 Gestion des contenus
+- Services modulaires pour **blogs**, **commentaires** et **votes**
+
+### 🛡️ Protection CSRF
+- Intégration d’un système **Antiforgery** configuré
+
+### 🚦 Limitation du débit
+- Système de **Rate Limiting** pour éviter les abus
+
+### 🍪 Sessions sécurisées
+- Gestion via **cookies sécurisés**, compatible avec Docker
+
+### 🔄 Sérialisation JSON avancée
+- Utilisation de `Newtonsoft.Json` pour une flexibilité maximale
 
 ---
 
-## Configuration
+## 🧰 Prérequis techniques
 
-### 1. Variables d’environnement
+- 💻 **.NET 6.0 ou supérieur**  
+- 🗄️ **SQL Server**  
+- 🧪 **Visual Studio 2022** ou équivalent
 
-- Définissez la variable `BLOGUE_DB_CONNECTION_STRING` qui doit contenir la chaîne de connexion complète à votre base de données SQL Server (cloud ou local). Exemple :
+---
+## ⚙️ Configuration
+
+### 1️⃣ Variables d’environnement
+
+Définissez la variable `BLOGUE_DB_CONNECTION_STRING` contenant la chaîne de connexion SQL Server. Exemple :
 
 ```bash
 export BLOGUE_DB_CONNECTION_STRING="Server=localhost;Database=RedSocialDB;User Id=sa;Password=VotreMotDePasse;"
 ```
 
-- Copier-là dans un fichier .env
+➡️ Copier-la dans un fichier `.env`
 
-### 2. Lancement de l'application avec Docker
-  - Compiler l'image
-     ```bash
-        docker build -t red-social-app . 
-   - Créer le conteneur
-      ```bash
-         docker run -d -p 5000:5000 --name red-social-app \
-            --env-file .env \
-            red-social-app 
+---
 
-## Utilisation
+### 2️⃣ Lancement de l'application avec Docker
 
-- Accédez à l’application via https://localhost:5000 (ou le port configuré).
-- Créez un compte utilisateur, publiez des blogs, commentez et votez.
-- Les protections CSRF, la limitation de requêtes et la gestion des sessions sont activées par défaut.
+#### 🛠️ Compiler l'image
+```bash
+docker build -t red-social-app .
+```
 
+#### 🚀 Créer le conteneur
+```bash
+docker run -d -p 5000:5000 --name red-social-app \
+  --env-file .env \
+  red-social-app
+```
+
+---
+
+## 🌐 Utilisation
+
+- Accédez à l’application via [https://localhost:5000](https://localhost:5000) (ou le port configuré)  
+- Créez un compte utilisateur, publiez des blogs, commentez et votez  
+- ✅ Les protections **CSRF**, la **limitation de requêtes** et la **gestion des sessions** sont activées par défaut
